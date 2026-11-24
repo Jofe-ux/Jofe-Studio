@@ -4,7 +4,8 @@
  */
 import type { Project } from './project'
 
-const base = { id: 'x', slug: 'x', name: 'X', category: 'c', description: 'd', featured: false } as const
+const text = { es: 'x', en: 'x' }
+const base = { id: 'x', slug: 'x', name: 'X', category: text, description: text, featured: false } as const
 
 export const okProduction: Project = { ...base, status: 'production', url: 'https://example.com' }
 export const okDevelopment: Project = { ...base, status: 'development', badge: 'PRÓXIMAMENTE' }
@@ -17,3 +18,6 @@ export const devWithUrl: Project = { ...base, status: 'development', badge: 'PR�
 
 // @ts-expect-error — solo https
 export const insecureUrl: Project = { ...base, status: 'production', url: 'http://example.com' }
+
+// @ts-expect-error — los textos deben existir en español e inglés
+export const missingEnglish: Project = { ...base, category: { es: 'x' }, status: 'production', url: 'https://example.com' }

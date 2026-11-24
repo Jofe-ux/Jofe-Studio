@@ -1,9 +1,12 @@
 import type { TechCategory } from '@/data/technologies'
+import { useI18n } from '@/i18n/I18nProvider'
+import { pick } from '@/i18n/types'
 import { Reveal } from './Reveal'
 
 const spans = { 2: 'lg:col-span-2', 3: 'lg:col-span-3' } as const
 
 export function TechnologyCard({ category, index }: { category: TechCategory; index: number }) {
+  const { lang } = useI18n()
   const Icon = category.icon
   return (
     <Reveal as="article" delay={(index % 3) * 80} className={`card-surface p-6 ${spans[category.span]}`}>
@@ -12,8 +15,8 @@ export function TechnologyCard({ category, index }: { category: TechCategory; in
           <Icon className="size-5" aria-hidden="true" />
         </span>
         <div>
-          <h3 className="text-base font-semibold text-fg">{category.title}</h3>
-          <p className="mono-label text-[0.68rem] text-fg-3">{category.caption}</p>
+          <h3 className="text-base font-semibold text-fg">{pick(category.title, lang)}</h3>
+          <p className="mono-label text-[0.68rem] text-fg-3">{pick(category.caption, lang)}</p>
         </div>
       </div>
       <ul className="flex flex-wrap gap-2">

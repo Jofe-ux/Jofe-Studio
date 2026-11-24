@@ -1,3 +1,5 @@
+import type { Localized } from '@/i18n/types'
+
 /** Solo se aceptan enlaces https. */
 export type HttpsUrl = `https://${string}`
 
@@ -5,11 +7,11 @@ interface ProjectBase {
   id: string
   slug: string
   name: string
-  category: string
-  description: string
+  category: Localized
+  description: Localized
   /** Captura real (importada con Vite). Si falta, se muestra un placeholder. */
   image?: string
-  imageAlt?: string
+  imageAlt?: Localized
   /** Solo tecnologías verificadas y aprobadas. Vacío = no se muestra nada. */
   technologies?: readonly string[]
   featured: boolean

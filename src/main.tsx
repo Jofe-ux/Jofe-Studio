@@ -4,9 +4,15 @@ import '@fontsource-variable/inter'
 import '@fontsource-variable/jetbrains-mono'
 import './styles/global.css'
 import App from './App'
+import { I18nProvider } from './i18n/I18nProvider'
+import { ThemeProvider } from './theme/ThemeProvider'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <ThemeProvider>
+      <I18nProvider>
+        <App />
+      </I18nProvider>
+    </ThemeProvider>
   </StrictMode>,
 )

@@ -19,8 +19,9 @@ function resolveSiteUrl(): string {
 function siteMeta(): Plugin {
   const siteUrl = resolveSiteUrl()
   const values: Record<string, string> = {
-    SEO_TITLE: site.seo.title,
-    SEO_DESCRIPTION: site.seo.description,
+    // HTML estático para buscadores en español; en el navegador se actualiza según el idioma elegido.
+    SEO_TITLE: site.seo.title.es,
+    SEO_DESCRIPTION: site.seo.description.es,
     OWNER: site.owner,
     BRAND: site.brand,
     LOCALE: site.seo.locale,

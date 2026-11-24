@@ -2,10 +2,14 @@ import { useEffect, useRef, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { navigation, site } from '@/config/site'
 import { useActiveSection } from '@/hooks/useActiveSection'
+import { useI18n } from '@/i18n/I18nProvider'
+import { LanguageToggle } from './LanguageToggle'
+import { ThemeToggle } from './ThemeToggle'
 
 const ids = navigation.map((n) => n.id)
 
 export function Navbar() {
+  const { t } = useI18n()
   const active = useActiveSection(ids)
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -47,13 +51,13 @@ export function Navbar() {
         scrolled || open ? 'border-line/70 bg-bg/85' : 'border-transparent bg-bg/40'
       }`}
     >
-      <div className="container-page flex h-16 items-center justify-between gap-6">
-        <a href="#inicio" className="flex flex-col leading-none" aria-label={`${site.brand}, ir al inicio`}>
+      <div className="container-page flex h-16 items-center justify-between gap-4">
+        <a href="#inicio" className="flex flex-col leading-none" aria-label={t.a11y.goHome(site.brand)}>
           <span className="text-[1.05rem] font-bold tracking-[0.04em] text-fg">{site.wordmark}</span>
           <span className="mono-label mt-1 hidden text-[0.62rem] text-accent sm:block">{site.owner}</span>
         </a>
 
-        <nav aria-label="Principal" className="hidden items-center gap-1 lg:flex">
+        <nav aria-label={t.a11y.mainNav} className="hidden items-center gap-1 lg:flex">
           {navigation.map((item) => {
             const isActive = active === item.id
             return (
@@ -62,24 +66,26 @@ export function Navbar() {
                 href={`#${item.id}`}
                 aria-current={isActive ? 'true' : undefined}
                 className={`rounded-md px-3 py-1.5 text-[0.8125rem] font-medium transition-colors ${
-                  isActive ? 'bg-accent/15 text-accent-soft' : 'text-fg-2 hover:bg-white/5 hover:text-fg'
+                  isActive ? 'bg-accent/15 text-accent-soft' : 'text-fg-2 hover:bg-fg/5 hover:text-fg'
                 }`}
               >
-                {item.label}
+                {t.nav[item.id]}
               </a>
             )
           })}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <a href="#contacto" className="btn btn-primary !min-h-10 !px-4 !py-2">
-            Hablemos
+        <div className="flex items-center gap-2 sm:gap-3">
+          <LanguageToggle />
+          <ThemeToggle />
+          <a href="#contacto" className="btn btn-primary !hidden !min-h-10 !px-4 !py-2 sm:!inline-flex">
+            {t.cta.talk}
           </a>
           <button
             ref={toggleRef}
             type="button"
-            className="inline-flex size-11 items-center justify-center rounded-lg border border-line text-fg transition-colors hover:border-accent lg:hidden"
-            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+            className="inline-flex size-10 items-center justify-center rounded-lg border border-line text-fg transition-colors hover:border-accent lg:hidden"
+            aria-label={open ? t.a11y.closeMenu : t.a11y.openMenu}
             aria-expanded={open}
             aria-controls="menu-movil"
             onClick={() => setOpen((v) => !v)}
@@ -91,7 +97,7 @@ export function Navbar() {
 
       {open && (
         <div id="menu-movil" ref={panelRef} className="border-t border-line/70 bg-bg lg:hidden">
-          <nav aria-label="Menú móvil" className="container-page flex flex-col gap-1 py-4">
+          <nav aria-label={t.a11y.mobileNav} className="container-page flex flex-col gap-1 py-4">
             {navigation.map((item) => (
               <a
                 key={item.id}
@@ -99,10 +105,10 @@ export function Navbar() {
                 onClick={() => setOpen(false)}
                 aria-current={active === item.id ? 'true' : undefined}
                 className={`flex min-h-12 items-center rounded-lg px-4 text-base font-medium ${
-                  active === item.id ? 'bg-accent/15 text-accent-soft' : 'text-fg-2 active:bg-white/5'
+                  active === item.id ? 'bg-accent/15 text-accent-soft' : 'text-fg-2 active:bg-fg/5'
                 }`}
               >
-                {item.label}
+                {t.nav[item.id]}
               </a>
             ))}
           </nav>

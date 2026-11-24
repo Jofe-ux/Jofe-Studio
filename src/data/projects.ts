@@ -5,20 +5,27 @@ import pedilo from '@/assets/images/projects/pedilo.webp'
 import thivasa from '@/assets/images/projects/thivasa.webp'
 
 /**
- * `technologies` se deja VACÍO a propósito: no se atribuyen tecnologías a un
- * proyecto sin aprobación (ver docs/TECNOLOGIAS.md con la evidencia hallada).
- * Para publicarlas, agrega p. ej. `technologies: ['React', 'TypeScript']`.
+ * Para AGREGAR un proyecto: añade un objeto a esta lista (el carrusel se ajusta solo).
+ * Cada texto lleva español e inglés.
+ *
+ * `technologies` se deja VACÍO a propósito: no se atribuyen tecnologías a un proyecto
+ * sin aprobación. Para publicarlas, agrega p. ej. `technologies: ['React', 'TypeScript']`.
  */
 export const projects: readonly Project[] = [
   {
     id: 'apuntesya',
     slug: 'apuntesya',
     name: 'ApuntesYA',
-    category: 'Educación / Plataforma web',
-    description:
-      'Plataforma educativa para compartir, consultar y descargar apuntes universitarios, facilitando el acceso a materiales académicos.',
+    category: { es: 'Educación / Plataforma web', en: 'Education / Web platform' },
+    description: {
+      es: 'Plataforma educativa para compartir, consultar y descargar apuntes universitarios, facilitando el acceso a materiales académicos.',
+      en: 'Educational platform to share, browse and download university notes, making academic material easier to access.',
+    },
     image: apuntesya,
-    imageAlt: 'Captura de la página principal de ApuntesYA, con el buscador de apuntes universitarios',
+    imageAlt: {
+      es: 'Captura de la página principal de ApuntesYA, con el buscador de apuntes universitarios',
+      en: 'Screenshot of the ApuntesYA home page, showing the university notes search',
+    },
     status: 'production',
     url: 'https://apuntesya-cgc9.onrender.com/',
     featured: true,
@@ -27,11 +34,16 @@ export const projects: readonly Project[] = [
     id: 'complejo-jya',
     slug: 'complejo-deportivo-jya',
     name: 'Complejo Deportivo JyA',
-    category: 'Reservas / Gestión deportiva',
-    description:
-      'Sistema web para gestionar reservas de instalaciones deportivas, consultar disponibilidad y administrar solicitudes de reserva.',
+    category: { es: 'Reservas / Gestión deportiva', en: 'Bookings / Sports management' },
+    description: {
+      es: 'Sistema web para gestionar reservas de instalaciones deportivas, consultar disponibilidad y administrar solicitudes de reserva.',
+      en: 'Web system to manage sports facility bookings, check availability and handle booking requests.',
+    },
     image: complejoJya,
-    imageAlt: 'Captura de la página principal del Complejo Deportivo JyA para reservar canchas',
+    imageAlt: {
+      es: 'Captura de la página principal del Complejo Deportivo JyA para reservar canchas',
+      en: 'Screenshot of the Complejo Deportivo JyA home page for booking courts',
+    },
     status: 'production',
     url: 'https://complejo-jya.vercel.app/',
     featured: true,
@@ -40,11 +52,16 @@ export const projects: readonly Project[] = [
     id: 'pedilo',
     slug: 'pedilo',
     name: 'Pedilo',
-    category: 'Comercio digital / Gestión de pedidos',
-    description:
-      'Plataforma orientada a pequeños negocios que permite presentar productos mediante catálogos digitales y gestionar pedidos.',
+    category: { es: 'Comercio digital / Gestión de pedidos', en: 'Digital commerce / Order management' },
+    description: {
+      es: 'Plataforma orientada a pequeños negocios que permite presentar productos mediante catálogos digitales y gestionar pedidos.',
+      en: 'Platform for small businesses to showcase products through digital catalogs and manage orders.',
+    },
     image: pedilo,
-    imageAlt: 'Captura de la página principal de Pedilo, con un ejemplo de catálogo y pedido',
+    imageAlt: {
+      es: 'Captura de la página principal de Pedilo, con un ejemplo de catálogo y pedido',
+      en: 'Screenshot of the Pedilo home page, with a sample catalog and order',
+    },
     status: 'production',
     url: 'https://pedilo-beige.vercel.app/',
     featured: true,
@@ -53,11 +70,16 @@ export const projects: readonly Project[] = [
     id: 'thivasa',
     slug: 'thivasa',
     name: 'Thivasa',
-    category: 'E-commerce / Comercio electrónico',
-    description:
-      'Tienda online especializada en calzados femeninos, diseñada para ofrecer una experiencia digital de presentación y compra de productos.',
+    category: { es: 'E-commerce / Comercio electrónico', en: 'E-commerce / Online store' },
+    description: {
+      es: 'Tienda online especializada en calzados femeninos, diseñada para ofrecer una experiencia digital de presentación y compra de productos.',
+      en: "Online store specialized in women's footwear, designed to offer a digital experience for browsing and buying products.",
+    },
     image: thivasa,
-    imageAlt: 'Captura de la página principal de la tienda online Thivasa, calzados femeninos',
+    imageAlt: {
+      es: 'Captura de la página principal de la tienda online Thivasa, calzados femeninos',
+      en: "Screenshot of the Thivasa online store home page, women's footwear",
+    },
     status: 'production',
     url: 'https://thivasa.com/',
     featured: true,
@@ -66,9 +88,11 @@ export const projects: readonly Project[] = [
     id: 'restos',
     slug: 'restos',
     name: 'RestOS',
-    category: 'Restaurantes / Gestión empresarial',
-    description:
-      'Sistema de gestión para restaurantes: pedidos, mesas y control del negocio en un solo lugar.',
+    category: { es: 'Restaurantes / Gestión empresarial', en: 'Restaurants / Business management' },
+    description: {
+      es: 'Sistema de gestión para restaurantes: pedidos, mesas y control del negocio en un solo lugar.',
+      en: 'Restaurant management system: orders, tables and business control in one place.',
+    },
     status: 'development',
     badge: 'PRÓXIMAMENTE',
     featured: true,

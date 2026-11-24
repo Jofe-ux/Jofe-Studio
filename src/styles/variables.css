@@ -1,6 +1,7 @@
 /*
  * TOKENS DE DISEÑO — única fuente de verdad de colores y tipografía.
- * Para cambiar la identidad visual (p. ej. al cian de Stitch #38BDF8) edita solo este archivo.
+ * Tema oscuro = valores de @theme. Tema claro = bloque :root[data-theme='light'] de abajo.
+ * Para cambiar la identidad visual edita solo este archivo.
  */
 @theme {
   /* Superficies */
@@ -28,12 +29,45 @@
   --font-sans: 'Inter Variable', Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
 
-  /* Radios (Stitch: contenidos y tecnológicos) */
   --radius-card: 0.75rem;
   --radius-control: 0.5rem;
 
-  --shadow-card: 0 10px 30px -12px rgb(0 0 0 / 0.6);
-  --shadow-glow: 0 0 24px -4px rgb(91 140 255 / 0.35);
-
   --container-page: 80rem;
+}
+
+/* Variables que cambian con el tema pero no son colores de utilidad */
+:root {
+  color-scheme: dark;
+  --shadow-card: 0 10px 30px -12px rgb(0 0 0 / 0.6);
+  --shadow-mock: 0 20px 40px -24px rgb(0 0 0 / 0.9);
+  --shadow-glow: 0 0 24px -4px rgb(91 140 255 / 0.35);
+  --portrait-glow: rgb(156 163 175 / 0.3);
+  --portrait-shadow: rgb(156 163 175 / 0.22);
+}
+
+/* TEMA CLARO — contrastes AA verificados (texto ≥ 4.5:1 sobre su fondo) */
+:root[data-theme='light'] {
+  color-scheme: light;
+  --color-bg: #f6f7fa;
+  --color-bg-2: #eceff5;
+  --color-card: #ffffff;
+  --color-card-hi: #f0f3f9;
+  --color-line: #d5dae5;
+
+  --color-accent: #2f5fe0;
+  --color-accent-soft: #1d46b8;
+  --color-on-accent: #ffffff;
+
+  --color-fg: #0f1722;
+  --color-fg-2: #465163;
+  --color-fg-3: #647084;
+
+  --color-ok: #0c7a52;
+  --color-wip: #a4600a;
+
+  --shadow-card: 0 10px 28px -14px rgb(15 23 42 / 0.2);
+  --shadow-mock: 0 18px 36px -22px rgb(15 23 42 / 0.35);
+  --shadow-glow: 0 0 22px -4px rgb(47 95 224 / 0.35);
+  --portrait-glow: rgb(100 116 139 / 0.2);
+  --portrait-shadow: rgb(15 23 42 / 0.2);
 }

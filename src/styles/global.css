@@ -5,7 +5,6 @@
   html {
     scroll-behavior: smooth;
     background: var(--color-bg);
-    color-scheme: dark;
     -webkit-text-size-adjust: 100%;
   }
   body {
@@ -127,6 +126,35 @@
     transform: none;
   }
 
+  /* Carrusel de proyectos: 1 / 2 / 3 tarjetas por fila según el ancho */
+  .carousel-track {
+    position: relative;
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding-block: 0.75rem;
+    margin-block: -0.75rem;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+  @media (min-width: 700px) {
+    .carousel-slide { flex-basis: calc((100% - 1.25rem) / 2); }
+  }
+  @media (min-width: 1024px) {
+    .carousel-slide { flex-basis: calc((100% - 2.5rem) / 3); }
+  }
+
   /* Placeholder "en construcción" */
   .hatch {
     background-color: var(--color-bg-2);
@@ -145,6 +173,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .carousel-track { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

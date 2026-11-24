@@ -1,3 +1,4 @@
+import { useI18n } from '@/i18n/I18nProvider'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { Hero } from '@/sections/Hero'
@@ -8,13 +9,14 @@ import { Technologies } from '@/sections/Technologies'
 import { Contact } from '@/sections/Contact'
 
 export default function App() {
+  const { t } = useI18n()
   return (
     <>
       <a
         href="#proyectos"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-on-accent"
       >
-        Saltar al contenido
+        {t.a11y.skip}
       </a>
       <Navbar />
       <main>
