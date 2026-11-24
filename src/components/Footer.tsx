@@ -7,8 +7,9 @@ export function Footer() {
   const channels = getContactChannels(lang)
   return (
     <footer className="border-t border-line bg-bg-2">
-      <div className="container-page grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
-        <div className="space-y-3">
+      {/* Móvil: marca arriba y Navegación + Redes en 2 columnas, para que el pie no se alargue */}
+      <div className="container-page grid grid-cols-2 gap-x-6 gap-y-10 py-12 md:grid-cols-[1.4fr_1fr_1fr] md:gap-x-10 md:py-14">
+        <div className="col-span-2 space-y-3 md:col-span-1">
           <p className="text-lg font-bold tracking-[0.04em] text-fg">{site.wordmark}</p>
           <p className="max-w-xs text-sm text-fg-2">{site.descriptor}</p>
           <p className="mono-label text-fg-3 normal-case tracking-normal">
