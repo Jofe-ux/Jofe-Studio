@@ -1,0 +1,11 @@
+node_modules
+dist
+.env
+.env.*
+*.log
+
+# Material de trabajo local (se conserva en tu equipo, no se publica)
+_archivo/
+stitch_jofe_studio_developer_portfolio/
+docs/
+.claude/

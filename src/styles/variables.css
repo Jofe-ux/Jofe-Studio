@@ -1,0 +1,39 @@
+/*
+ * TOKENS DE DISEÑO — única fuente de verdad de colores y tipografía.
+ * Para cambiar la identidad visual (p. ej. al cian de Stitch #38BDF8) edita solo este archivo.
+ */
+@theme {
+  /* Superficies */
+  --color-bg: #0b0d10;
+  --color-bg-2: #12161c;
+  --color-card: #181d25;
+  --color-card-hi: #1e2430;
+  --color-line: #29313d;
+
+  /* Acento */
+  --color-accent: #5b8cff;
+  --color-accent-soft: #8fb0ff;
+  --color-on-accent: #0b0d10;
+
+  /* Texto */
+  --color-fg: #f5f7fa;
+  --color-fg-2: #9ca3af;
+  --color-fg-3: #7c8493;
+
+  /* Estados */
+  --color-ok: #34d399;
+  --color-wip: #f5b544;
+
+  /* Tipografía */
+  --font-sans: 'Inter Variable', Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  /* Radios (Stitch: contenidos y tecnológicos) */
+  --radius-card: 0.75rem;
+  --radius-control: 0.5rem;
+
+  --shadow-card: 0 10px 30px -12px rgb(0 0 0 / 0.6);
+  --shadow-glow: 0 0 24px -4px rgb(91 140 255 / 0.35);
+
+  --container-page: 80rem;
+}
