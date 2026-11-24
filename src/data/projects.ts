@@ -8,8 +8,9 @@ import thivasa from '@/assets/images/projects/thivasa.webp'
  * Para AGREGAR un proyecto: añade un objeto a esta lista (el carrusel se ajusta solo).
  * Cada texto lleva español e inglés.
  *
- * `technologies` se deja VACÍO a propósito: no se atribuyen tecnologías a un proyecto
- * sin aprobación. Para publicarlas, agrega p. ej. `technologies: ['React', 'TypeScript']`.
+ * `technologies`: solo tecnologías con evidencia en el código del proyecto y aprobadas por
+ * Jose (ver docs/TECNOLOGIAS.md). Si no hay evidencia, se deja sin definir y la tarjeta no
+ * muestra etiquetas.
  */
 export const projects: readonly Project[] = [
   {
@@ -26,6 +27,7 @@ export const projects: readonly Project[] = [
       es: 'Captura de la página principal de ApuntesYA, con el buscador de apuntes universitarios',
       en: 'Screenshot of the ApuntesYA home page, showing the university notes search',
     },
+    technologies: ['Next.js', 'React', 'TypeScript', 'PostgreSQL'],
     status: 'production',
     url: 'https://apuntesya-cgc9.onrender.com/',
     featured: true,
@@ -44,6 +46,7 @@ export const projects: readonly Project[] = [
       es: 'Captura de la página principal del Complejo Deportivo JyA para reservar canchas',
       en: 'Screenshot of the Complejo Deportivo JyA home page for booking courts',
     },
+    technologies: ['React', 'TypeScript', 'Django', 'PostgreSQL'],
     status: 'production',
     url: 'https://complejo-jya.vercel.app/',
     featured: true,
@@ -62,6 +65,7 @@ export const projects: readonly Project[] = [
       es: 'Captura de la página principal de Pedilo, con un ejemplo de catálogo y pedido',
       en: 'Screenshot of the Pedilo home page, with a sample catalog and order',
     },
+    technologies: ['Next.js', 'React', 'TypeScript'],
     status: 'production',
     url: 'https://pedilo-beige.vercel.app/',
     featured: true,
@@ -80,6 +84,7 @@ export const projects: readonly Project[] = [
       es: 'Captura de la página principal de la tienda online Thivasa, calzados femeninos',
       en: "Screenshot of the Thivasa online store home page, women's footwear",
     },
+    technologies: ['React', 'TypeScript', 'Django'],
     status: 'production',
     url: 'https://thivasa.com/',
     featured: true,
@@ -93,6 +98,7 @@ export const projects: readonly Project[] = [
       es: 'Sistema de gestión para restaurantes: pedidos, mesas y control del negocio en un solo lugar.',
       en: 'Restaurant management system: orders, tables and business control in one place.',
     },
+    technologies: ['React', 'TypeScript', 'Django', 'PostgreSQL'],
     status: 'development',
     badge: 'PRÓXIMAMENTE',
     featured: true,
