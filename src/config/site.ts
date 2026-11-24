@@ -26,7 +26,7 @@ export const site = {
     } satisfies Localized,
     locale: 'es_BO',
     // Ruta dentro de /public. vite.config.ts la convierte en URL absoluta si hay dominio (ver README).
-    ogImage: '/og-image.png',
+    ogImage: '/og-image.jpg',
   },
 
   hero: {
@@ -63,6 +63,7 @@ export const navigation = [
   { id: 'proyectos' },
   { id: 'sobre-mi' },
   { id: 'tecnologias' },
+  { id: 'proceso' },
   { id: 'contacto' },
 ] as const
 

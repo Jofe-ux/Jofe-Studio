@@ -1,4 +1,5 @@
-import { ArrowUpRight } from 'lucide-react'
+import type { FormEvent } from 'react'
+import { ArrowUpRight, Send } from 'lucide-react'
 import { useI18n } from '@/i18n/I18nProvider'
 import { getContactChannels } from '@/lib/contact'
 import { Reveal } from '@/components/Reveal'
@@ -7,6 +8,20 @@ import { SectionTitle } from '@/components/SectionTitle'
 export function Contact() {
   const { t, lang } = useI18n()
   const channels = getContactChannels(lang)
+  const whatsapp = channels.find((c) => c.id === 'whatsapp')
+
+  /** Sin backend: arma el mensaje y abre WhatsApp con el texto ya escrito. */
+  const sendViaWhatsApp = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (!whatsapp) return
+    const data = new FormData(e.currentTarget)
+    const name = String(data.get('name') ?? '').trim().slice(0, 80)
+    const message = String(data.get('message') ?? '').trim().slice(0, 600)
+    if (!name || !message) return
+    const base = whatsapp.href.split('?')[0]
+    window.open(`${base}?text=${encodeURIComponent(t.contact.form.compose(name, message))}`, '_blank', 'noopener,noreferrer')
+    e.currentTarget.reset()
+  }
 
   return (
     <section id="contacto" aria-labelledby="contacto-title" className="container-page py-20 sm:py-24">
@@ -48,6 +63,46 @@ export function Contact() {
               <p className="mx-auto max-w-md rounded-lg border border-dashed border-line px-5 py-4 text-center text-sm text-fg-2">
                 {t.contact.none}
               </p>
+            </Reveal>
+          )}
+
+          {whatsapp && (
+            <Reveal className="mx-auto mt-8 max-w-3xl" delay={120}>
+              <form onSubmit={sendViaWhatsApp} className="card-surface grid gap-4 p-5 sm:p-6">
+                <h3 className="text-base font-semibold text-fg">{t.contact.form.title}</h3>
+                <div className="grid gap-4 sm:grid-cols-[1fr_2fr]">
+                  <label className="grid gap-1.5 text-sm text-fg-2">
+                    {t.contact.form.name}
+                    <input
+                      name="name"
+                      required
+                      minLength={2}
+                      maxLength={80}
+                      autoComplete="name"
+                      className="min-h-11 rounded-lg border border-line bg-bg px-3 text-fg outline-none transition-colors focus:border-accent"
+                    />
+                  </label>
+                  <label className="grid gap-1.5 text-sm text-fg-2">
+                    {t.contact.form.message}
+                    <textarea
+                      name="message"
+                      required
+                      minLength={5}
+                      maxLength={600}
+                      rows={3}
+                      className="resize-y rounded-lg border border-line bg-bg px-3 py-2.5 text-fg outline-none transition-colors focus:border-accent"
+                    />
+                  </label>
+                </div>
+                <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-xs text-fg-3">{t.contact.form.note}</p>
+                  <button type="submit" className="btn btn-primary w-full sm:w-auto">
+                    <Send className="size-4" aria-hidden="true" />
+                    {t.contact.form.send}
+                    <span className="sr-only"> {t.a11y.newTab}</span>
+                  </button>
+                </div>
+              </form>
             </Reveal>
           )}
         </div>

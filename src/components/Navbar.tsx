@@ -4,6 +4,7 @@ import { navigation, site } from '@/config/site'
 import { useActiveSection } from '@/hooks/useActiveSection'
 import { useI18n } from '@/i18n/I18nProvider'
 import { LanguageToggle } from './LanguageToggle'
+import { Logo } from './Logo'
 import { ThemeToggle } from './ThemeToggle'
 
 const ids = navigation.map((n) => n.id)
@@ -52,9 +53,12 @@ export function Navbar() {
       }`}
     >
       <div className="container-page flex h-16 items-center justify-between gap-4">
-        <a href="#inicio" className="flex flex-col leading-none" aria-label={t.a11y.goHome(site.brand)}>
-          <span className="text-[1.05rem] font-bold tracking-[0.04em] text-fg">{site.wordmark}</span>
-          <span className="mono-label mt-1 hidden text-[0.62rem] text-accent sm:block">{site.owner}</span>
+        <a href="#inicio" className="flex items-center gap-2.5" aria-label={t.a11y.goHome(site.brand)}>
+          <Logo className="size-9 shrink-0" />
+          <span className="flex flex-col leading-none whitespace-nowrap">
+            <span className="text-[1.05rem] font-bold tracking-[0.04em] text-fg">{site.wordmark}</span>
+            <span className="mono-label mt-1 hidden text-[0.62rem] text-accent sm:block">{site.owner}</span>
+          </span>
         </a>
 
         <nav aria-label={t.a11y.mainNav} className="hidden items-center gap-1 lg:flex">
@@ -65,7 +69,7 @@ export function Navbar() {
                 key={item.id}
                 href={`#${item.id}`}
                 aria-current={isActive ? 'true' : undefined}
-                className={`rounded-md px-3 py-1.5 text-[0.8125rem] font-medium transition-colors ${
+                className={`rounded-md px-2.5 py-1.5 text-[0.8125rem] font-medium whitespace-nowrap transition-colors xl:px-3 ${
                   isActive ? 'bg-accent/15 text-accent-soft' : 'text-fg-2 hover:bg-fg/5 hover:text-fg'
                 }`}
               >
@@ -78,7 +82,7 @@ export function Navbar() {
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageToggle />
           <ThemeToggle />
-          <a href="#contacto" className="btn btn-primary !hidden !min-h-10 !px-4 !py-2 sm:!inline-flex">
+          <a href="#contacto" className="btn btn-primary !hidden !min-h-10 !px-4 !py-2 whitespace-nowrap sm:!inline-flex lg:!hidden xl:!inline-flex">
             {t.cta.talk}
           </a>
           <button

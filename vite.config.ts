@@ -39,6 +39,21 @@ function siteMeta(): Plugin {
         : []
       return { html: out, tags }
     },
+    // robots.txt siempre; sitemap.xml cuando se conoce el dominio (SITE_URL o el de Vercel).
+    generateBundle() {
+      this.emitFile({
+        type: 'asset',
+        fileName: 'robots.txt',
+        source: `User-agent: *\nAllow: /\n${siteUrl ? `\nSitemap: ${siteUrl}/sitemap.xml\n` : ''}`,
+      })
+      if (siteUrl) {
+        this.emitFile({
+          type: 'asset',
+          fileName: 'sitemap.xml',
+          source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${siteUrl}/</loc></url>\n</urlset>\n`,
+        })
+      }
+    },
   }
 }
 

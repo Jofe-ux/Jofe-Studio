@@ -6,6 +6,8 @@ import { StatusStrip } from '@/sections/StatusStrip'
 import { Projects } from '@/sections/Projects'
 import { About } from '@/sections/About'
 import { Technologies } from '@/sections/Technologies'
+import { Process } from '@/sections/Process'
+import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { Contact } from '@/sections/Contact'
 
 export default function App() {
@@ -25,9 +27,11 @@ export default function App() {
         <Projects />
         <About />
         <Technologies />
+        <Process />
         <Contact />
       </main>
       <Footer />
+      <WhatsAppButton />
     </>
   )
 }

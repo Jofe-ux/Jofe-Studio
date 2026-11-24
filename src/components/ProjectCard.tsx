@@ -36,7 +36,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
     >
       <div className="p-3 sm:p-4">
         <div className="transition-transform duration-500 group-hover:scale-[1.015]">
-          <BrowserMockup src={project.image} alt={alt} address={address} construction={dev} name={project.name} />
+          <BrowserMockup src={project.image} alt={alt} address={address} construction={dev} name={project.name} scrolls={project.imageScrolls} />
         </div>
       </div>
 

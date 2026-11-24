@@ -1,6 +1,7 @@
 import { navigation, site } from '@/config/site'
 import { useI18n } from '@/i18n/I18nProvider'
 import { getContactChannels } from '@/lib/contact'
+import { Logo } from './Logo'
 
 export function Footer() {
   const { t, lang } = useI18n()
@@ -10,7 +11,10 @@ export function Footer() {
       {/* Móvil: marca arriba y Navegación + Redes en 2 columnas, para que el pie no se alargue */}
       <div className="container-page grid grid-cols-2 gap-x-6 gap-y-10 py-12 md:grid-cols-[1.4fr_1fr_1fr] md:gap-x-10 md:py-14">
         <div className="col-span-2 space-y-3 md:col-span-1">
-          <p className="text-lg font-bold tracking-[0.04em] text-fg">{site.wordmark}</p>
+          <p className="flex items-center gap-3 text-lg font-bold tracking-[0.04em] text-fg">
+            <Logo className="size-9 shrink-0" />
+            {site.wordmark}
+          </p>
           <p className="max-w-xs text-sm text-fg-2">{site.descriptor}</p>
           <p className="mono-label text-fg-3 normal-case tracking-normal">
             {t.footer.developedBy} {site.owner}

@@ -21,6 +21,9 @@
   --color-fg-2: #9ca3af;
   --color-fg-3: #7c8493;
 
+  /* Chispa naranja del logo: solo detalles (puntos, líneas), nunca texto */
+  --color-spark: #ff9f2e;
+
   /* Estados */
   --color-ok: #34d399;
   --color-wip: #f5b544;
@@ -62,6 +65,7 @@
   --color-fg-2: #465163;
   --color-fg-3: #647084;
 
+  --color-spark: #f08a14;
   --color-ok: #0c7a52;
   --color-wip: #a4600a;
 

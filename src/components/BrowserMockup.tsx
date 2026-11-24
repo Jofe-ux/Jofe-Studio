@@ -10,10 +10,12 @@ interface Props {
   /** El placeholder se presenta como "en construcción". */
   construction?: boolean
   name: string
+  /** Captura de página completa: se desplaza al pasar el cursor sobre la tarjeta (.group). */
+  scrolls?: boolean
 }
 
 /** Marco tipo navegador con la captura real; si no existe, placeholder reemplazable. */
-export function BrowserMockup({ src, alt, address, construction = false, name }: Props) {
+export function BrowserMockup({ src, alt, address, construction = false, name, scrolls = false }: Props) {
   const { t } = useI18n()
   return (
     <div className="overflow-hidden rounded-lg border border-line bg-bg-2 shadow-[var(--shadow-mock)]">
@@ -28,9 +30,13 @@ export function BrowserMockup({ src, alt, address, construction = false, name }:
         </span>
       </div>
 
-      <div className="relative aspect-[16/10] w-full">
+      <div className={`relative aspect-[16/10] w-full ${scrolls ? 'shot-frame' : ''}`}>
         {src ? (
-          <img src={src} alt={alt} width={1440} height={900} loading="lazy" decoding="async" className="size-full object-cover object-top" />
+          scrolls ? (
+            <img src={src} alt={alt} loading="lazy" decoding="async" className="shot-scroll" />
+          ) : (
+            <img src={src} alt={alt} width={1440} height={900} loading="lazy" decoding="async" className="size-full object-cover object-top" />
+          )
         ) : (
           <div role="img" aria-label={alt} className={`hatch grid size-full place-items-center ${construction ? '' : 'opacity-80'}`}>
             <div className="flex flex-col items-center gap-2.5 px-6 text-center">

@@ -17,7 +17,8 @@ export function Hero() {
 
   return (
     <section id="inicio" aria-labelledby="hero-title" className="relative overflow-hidden pt-28 pb-16 sm:pt-32 lg:pt-36 lg:pb-24">
-      {/* Brillos ambientales sutiles (Stitch) */}
+      {/* Retícula sutil y brillos ambientales (Stitch) */}
+      <div aria-hidden="true" className="dot-grid pointer-events-none absolute inset-0" />
       <div aria-hidden="true" className="pointer-events-none absolute -top-40 left-1/4 size-96 rounded-full bg-accent/10 blur-3xl" />
       <div aria-hidden="true" className="pointer-events-none absolute top-1/3 -right-24 size-80 rounded-full bg-accent/10 blur-3xl" />
 
@@ -25,8 +26,8 @@ export function Hero() {
         <div className="flex flex-col items-start gap-6 lg:col-span-7">
           <span className="mono-label inline-flex items-center gap-2.5 rounded-full border border-line bg-card px-3.5 py-1.5 text-accent shadow-sm">
             <span className="relative flex size-2">
-              <span className="ping-soft absolute inline-flex size-full rounded-full bg-accent opacity-70" />
-              <span className="relative inline-flex size-2 rounded-full bg-accent" />
+              <span className="ping-soft absolute inline-flex size-full rounded-full bg-spark opacity-70" />
+              <span className="relative inline-flex size-2 rounded-full bg-spark" />
             </span>
             {site.badge}
           </span>

@@ -12,6 +12,8 @@ interface ProjectBase {
   /** Captura real (importada con Vite). Si falta, se muestra un placeholder. */
   image?: string
   imageAlt?: Localized
+  /** La captura es de página completa: al pasar el cursor se desplaza hacia abajo (vista previa viva). */
+  imageScrolls?: boolean
   /** Solo tecnologías verificadas y aprobadas. Vacío = no se muestra nada. */
   technologies?: readonly string[]
   featured: boolean

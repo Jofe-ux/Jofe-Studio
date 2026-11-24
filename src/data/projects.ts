@@ -1,4 +1,4 @@
-import type { Project } from '@/types/project'
+﻿import type { Project } from '@/types/project'
 import apuntesya from '@/assets/images/projects/apuntesya.webp'
 import complejoJya from '@/assets/images/projects/complejo-jya.webp'
 import pedilo from '@/assets/images/projects/pedilo.webp'
@@ -7,6 +7,9 @@ import thivasa from '@/assets/images/projects/thivasa.webp'
 /**
  * Para AGREGAR un proyecto: añade un objeto a esta lista (el carrusel se ajusta solo).
  * Cada texto lleva español e inglés.
+ *
+ * `image` es una captura REAL de página completa (1440 px de ancho). Con `imageScrolls: true`
+ * la tarjeta la desplaza al pasar el cursor (vista previa viva).
  *
  * `technologies`: solo tecnologías con evidencia en el código del proyecto y aprobadas por
  * Jose (ver docs/TECNOLOGIAS.md). Si no hay evidencia, se deja sin definir y la tarjeta no
@@ -23,6 +26,7 @@ export const projects: readonly Project[] = [
       en: 'Educational platform to share, browse and download university notes, making academic material easier to access.',
     },
     image: apuntesya,
+    imageScrolls: true,
     imageAlt: {
       es: 'Captura de la página principal de ApuntesYA, con el buscador de apuntes universitarios',
       en: 'Screenshot of the ApuntesYA home page, showing the university notes search',
@@ -42,6 +46,7 @@ export const projects: readonly Project[] = [
       en: 'Web system to manage sports facility bookings, check availability and handle booking requests.',
     },
     image: complejoJya,
+    imageScrolls: true,
     imageAlt: {
       es: 'Captura de la página principal del Complejo Deportivo JyA para reservar canchas',
       en: 'Screenshot of the Complejo Deportivo JyA home page for booking courts',
@@ -61,6 +66,7 @@ export const projects: readonly Project[] = [
       en: 'Platform for small businesses to showcase products through digital catalogs and manage orders.',
     },
     image: pedilo,
+    imageScrolls: true,
     imageAlt: {
       es: 'Captura de la página principal de Pedilo, con un ejemplo de catálogo y pedido',
       en: 'Screenshot of the Pedilo home page, with a sample catalog and order',
@@ -80,6 +86,7 @@ export const projects: readonly Project[] = [
       en: "Online store specialized in women's footwear, designed to offer a digital experience for browsing and buying products.",
     },
     image: thivasa,
+    imageScrolls: true,
     imageAlt: {
       es: 'Captura de la página principal de la tienda online Thivasa, calzados femeninos',
       en: "Screenshot of the Thivasa online store home page, women's footwear",
